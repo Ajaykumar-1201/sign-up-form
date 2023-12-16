@@ -1,0 +1,44 @@
+.signUp {
+    margin-top: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border-radius: 5px;
+    /* border: 2px solid red; */
+    width: 300px;
+    height: 25px;
+}
+
+p{
+    color: red;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input:focus{
+    /* border: 2px solid red; */
+    outline: none;
+}
+
+/* Add these styles to your CSS file */
+.valid {
+    border: 2px solid green;
+  }
+  
+  .invalid {
+    border: 2px solid red;
+  }
+  
+
