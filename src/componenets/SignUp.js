@@ -8,11 +8,14 @@ const SignUp = () => {
   const [mailMsg, setMailMsg] = useState("");
   const [passMsg, setPassMsg] = useState("");
   const [confirmPassMsg, setConfirmPassMsg] = useState("");
+  const [valid, setValid] = useState(false)
 
   function handleMailInput(event) {
     if (emailRegex.test(mail)) {
       event.target.style.border = "2px solid green";
       setMailMsg('');
+      setValid(true);
+      
     } else {
       event.target.style.border = "2px solid red";
       setMailMsg("Invalid Email Address");
@@ -29,15 +32,6 @@ const SignUp = () => {
     }
   }
 
-//   function check(pass, cPass) {
-//     for(let i = 0; i < pass.length; i++) {
-//         if(pass.length < cPass.length || pass[i] !== cPass[i]  ) {
-//             return false;
-//         }
-//     }
-//     return true;
-
-//   }
 
   function handleConfirmPassInput(event) {
     if (pass === confirmPass) {
@@ -46,6 +40,14 @@ const SignUp = () => {
     } else {
       event.target.style.border = "2px solid red";
       setConfirmPassMsg("Passwords do not match");
+    }
+  }
+
+  function handleSubmitButton(){
+    if(mailMsg.length === 0 && passMsg.length === 0 && confirmPassMsg.length === 0 && valid) {
+        alert('Form submitted succesfully')
+    }else {
+        alert("Can't submit the form")
     }
   }
 
@@ -80,6 +82,7 @@ const SignUp = () => {
           ></input>
           <p>{confirmPassMsg}</p>
         </div>
+        <button onClick={handleSubmitButton} type="submit">Submit</button>
       </div>
     </div>
   );
